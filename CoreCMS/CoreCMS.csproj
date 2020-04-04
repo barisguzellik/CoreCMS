@@ -5,12 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Compile Remove="Migrations\20200404201429_Change Service Table.cs" />
+    <Compile Remove="Migrations\20200404201429_Change Service Table.Designer.cs" />
+    <Compile Remove="Migrations\20200404201951_update service.cs" />
+    <Compile Remove="Migrations\20200404201951_update service.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Pages\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
