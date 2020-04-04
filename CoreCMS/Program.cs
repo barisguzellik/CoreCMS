@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +15,16 @@ namespace CoreCMS
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+
+            //Comment Localhost
+            /*var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup("")
+                .Build();
+
+            host.Run();*/
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +33,6 @@ namespace CoreCMS
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }

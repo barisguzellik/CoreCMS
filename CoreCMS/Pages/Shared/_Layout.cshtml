@@ -1,45 +1,150 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-    <link rel="stylesheet" href="~/css/bootstrap-min.css" />
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/assets/images/favicon.png" />
+    <title>Admin</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- page css -->
+    <link href="~/css/pages/login-register-lock.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- You can change the theme colors from here -->
+    <link href="~/css/colors/default-dark.css" id="theme" rel="stylesheet" />
+    <link href="~/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body>
+<body class="fix-header card-no-border fix-sidebar">
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+        </div>
+    </div>
 
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">CoreCMS</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+
+    <div id="main-wrapper">
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/Index">
+                        <!-- Logo icon -->
+                        <b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="~/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <!-- Light Logo icon -->
+                            <img src="~/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span style="color: white; font-weight: bold;">
+                            ADMIN
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                        <li class="nav-item"><a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a></li>
+                        <li class="nav-item hidden-sm-down"><span>Administrator Panel</span></li>
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="~/assets/images/users/1.jpg" alt="user" class="profile-pic" />
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                                <ul class="dropdown-user">
+
+                                    <li><a href="#"><i class="ti-settings"></i>&nbsp;Settings</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i>&nbsp;Logout</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </header>
+        <aside class="left-sidebar">
+            <div class="scroll-sidebar">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                                <i class="mdi mdi-tree"></i>
+                                <span class="hide-menu">Category</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Add Category</a></li>
+                                <li><a href="#">Categories</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                                <i class="mdi mdi-table"></i>
+                                <span class="hide-menu">Product</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Add Product</a></li>
+                                <li><a href="#">Products</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                                <i class="mdi mdi-star"></i>
+                                <span class="hide-menu">Service</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a href="#">Add Service</a></li>
+                                <li><a href="#">Services</a></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                </nav>
             </div>
-        </nav>
-    </header>
+        </aside>
+        <div class="page-wrapper">
 
-    <div class="container">
-        <main role="main">
-            @RenderBody()
-        </main>
+          @RenderBody()
+
+            <footer class="footer">
+                © 2020 Admin
+            </footer>
+        </div>
     </div>
 
-    <footer class="footer text-muted">
-        <div class="container">
-            &copy; 2020 - CoreCMS - <a asp-area="">Privacy</a>
-        </div>
-    </footer>
 
-    <script src="~/js/jquery.min.js"></script>
-    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="~/assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/js/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="~/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="~/assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/js/custom.min.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="~/assets/plugins/sweetalert/sweetalert.min.js"></script>
+    <script src="~/assets/plugins/sweetalert/jquery.sweet-alert.custom.js"></script>
 </body>
 </html>
