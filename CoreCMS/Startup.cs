@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using CoreCMS.Model;
@@ -18,7 +19,7 @@ namespace CoreCMS
     {
 
         //COMMENT-Confg.
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; private set; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,7 +30,10 @@ namespace CoreCMS
         public void ConfigureServices(IServiceCollection services)
         {
             //COMMENT-DbContext
-            services.AddDbContext<CoreCMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            //services.AddDbContext<CoreCMSContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            //COMMENT-Dapper Connections
+            services.AddOptions();
+            services.Configure<ConnectionString>(Configuration.GetSection("ConnectionStrings"));
 
             //COMMENT-RazorPages Services
             services.AddRazorPages();

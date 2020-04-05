@@ -16,6 +16,8 @@ namespace CoreCMS
         {
             CreateHostBuilder(args).Build().Run();
 
+
+
             //Comment Localhost
             /*var host = new WebHostBuilder()
                 .UseKestrel()
