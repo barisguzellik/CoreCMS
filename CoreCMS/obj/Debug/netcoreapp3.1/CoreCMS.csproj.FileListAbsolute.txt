@@ -147,3 +147,5 @@ C:\Users\baris\source\repos\CoreCMS\CoreCMS\obj\Debug\netcoreapp3.1\Razor\Pages\
 C:\Users\baris\source\repos\CoreCMS\CoreCMS\obj\Debug\netcoreapp3.1\Razor\Pages\Category\Index.cshtml.g.cs
 C:\Users\baris\source\repos\CoreCMS\CoreCMS\obj\Debug\netcoreapp3.1\Razor\Pages\Product\Index.cshtml.g.cs
 C:\Users\baris\source\repos\CoreCMS\CoreCMS\obj\Debug\netcoreapp3.1\Razor\Pages\Service\Index.cshtml.g.cs
+C:\Users\baris\source\repos\CoreCMS\CoreCMS\obj\Debug\netcoreapp3.1\Razor\Pages\Category\EditCategory.cshtml.g.cs
+C:\Users\baris\source\repos\CoreCMS\CoreCMS\obj\Debug\netcoreapp3.1\Razor\Pages\Category\AddCategory.cshtml.g.cs

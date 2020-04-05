@@ -43,8 +43,6 @@
 
 <script>
     $(document).ready(function () {
-        var buttons = "<a href=\"#\" class=\"btn btn-success btn-sm\">OK</a>";
-        buttons += "<a href=\"#\" class=\"btn btn-danger btn-sm\">DEL</a>";
 
         $('#datatable').DataTable({
             data: @Json.Serialize(Model.Category),
@@ -52,7 +50,13 @@
                 { data: 'index' },
                 { data: 'categoryName' },
                 { data: 'status' },
-                { data: 'categoryId', render: function (data) { return buttons; }, orderable: false, class:'text-center' }
+                {
+                    data: 'categoryId', orderable: false, class: 'text-center',
+                    render: function (data) {
+                        return '<a href="/Category/EditCategory?id=' + data + '" class="btn btn-success btn-sm"><i class="fa fa-info-circle"></i></a>'
+                        
+                    }
+                }
             ]
         });
     });
