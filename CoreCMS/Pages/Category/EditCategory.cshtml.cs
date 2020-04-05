@@ -56,18 +56,13 @@ namespace CoreCMS
 
         public IActionResult OnPostDelete()
         {
-
-
-            if (!string.IsNullOrEmpty(Request.Query["id"]))
+            var category = Category;
+            var id = Category.CategoryId;
+            using (var connection = new SqlConnection(con))
             {
-                var category = Category;
-                var id = int.Parse(Request.Query["id"]);
-                using (var connection = new SqlConnection(con))
-                {
-                    var sql = "DELETE from Category Where CategoryId=@CategoryId";
-                    var param = new { CategoryId = id };
-                    connection.Execute(sql, param);
-                }
+                var sql = "DELETE from Category Where CategoryId=@CategoryId";
+                var param = new { CategoryId = id };
+                connection.Execute(sql, param);
             }
 
             return RedirectToPage("/Category/Index");
@@ -76,7 +71,7 @@ namespace CoreCMS
         public IActionResult OnPostUpdate()
         {
             var category = Category;
-            var id = int.Parse(Request.Query["id"]);
+            var id = Category.CategoryId;
 
             //file upload
             if (Upload != null)
@@ -91,16 +86,15 @@ namespace CoreCMS
             }
 
             //update
-            if (!string.IsNullOrEmpty(Request.Query["id"]))
+            using (var connection = new SqlConnection(con))
             {
-                using (var connection = new SqlConnection(con))
-                {
-                    var sql = "UPDATE Category Set CategoryName=@CategoryName,Image=@Image,[Index]=@Index,Status=@Status,ParentCategoryId=@ParentCategoryId,CreatedDate=@CreatedDate Where CategoryId=@CategoryId";
-                    var param = new { CategoryId = id, CategoryName = category.CategoryName, Image = category.Image, Index = category.Index, Status = category.Status, ParentCategoryId = category.ParentCategoryId, CreatedDate = DateTime.Now };
-                    connection.Execute(sql, param);
-                }
+                var sql = "UPDATE Category Set CategoryName=@CategoryName,Image=@Image,[Index]=@Index,Status=@Status,ParentCategoryId=@ParentCategoryId,CreatedDate=@CreatedDate Where CategoryId=@CategoryId";
+                var param = new { CategoryId = id, CategoryName = category.CategoryName, Image = category.Image, Index = category.Index, Status = category.Status, ParentCategoryId = category.ParentCategoryId, CreatedDate = DateTime.Now };
+                connection.Execute(sql, param);
             }
+
             return RedirectToPage("/Category/Index");
+
         }
     }
 }

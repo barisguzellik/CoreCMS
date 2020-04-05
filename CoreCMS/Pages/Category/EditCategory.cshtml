@@ -72,6 +72,7 @@
                                 Cover Image
                             </label>
                             <div class="col-10">
+                                <input type="hidden"  asp-for="Category.Image" />
                                 <img src="/uploads/@Model.Category.Image" width="150" />
                                 <br />
                                 <input type="file" asp-for="Upload" />
@@ -80,8 +81,8 @@
                         <div class="form-group row">
                             <div class="col-12">
                                 <input type="hidden" asp-for="Category.CategoryId" />
-                                <button type="submit" asp-page-handler="Update" asp-route-id="@Model.Category.CategoryId" class="btn btn-info waves-effect m-t-10">SAVE</button>
-                                <button type="submit" asp-page-handler="Delete" asp-route-id="@Model.Category.CategoryId" class="btn btn-danger waves-effect m-t-10">DELETE</button>
+                                <button type="submit" asp-page-handler="Update"  class="btn btn-info waves-effect m-t-10">SAVE</button>
+                                <button type="submit" asp-page-handler="Delete"  class="btn btn-danger waves-effect m-t-10">DELETE</button>
                             </div>
                         </div>
                     </form>
